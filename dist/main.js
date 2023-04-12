@@ -110,23 +110,33 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/app.js":
-/*!********************!*\
-  !*** ./src/app.js ***!
-  \********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createTask\": () => (/* binding */ createTask)\n/* harmony export */ });\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\n\n\nconsole.log(\"This is Logic\");\n\nclass Task {\n  constructor(title, description, deadline, priority, notes) {\n    this.title = title;\n    this.description = description;\n    this.deadline = deadline;\n    this.priority = priority;\n    this.notes = notes;\n  }\n\n  printTask() {\n    return `\n    ${this.title} <br>\n    ${this.description} <br>\n    Ends in ${this.deadline} <br>\n    ${this.priority}\n    `;\n  }\n}\n\nlet allTasks = [];\n\nfunction createTask() {\n  let exTask = new Task(\n    \"Gay\",\n    \"Sex\",\n    \"23/12\",\n    \"high\",\n    \"This is  avery specific test\"\n  );\n  (0,_dom__WEBPACK_IMPORTED_MODULE_1__.createCard)(exTask);\n  allTasks.push(exTask);\n  console.log(allTasks);\n}\n\n\n//# sourceURL=webpack://todo/./src/app.js?");
-
-/***/ }),
-
 /***/ "./src/dom.js":
 /*!********************!*\
   !*** ./src/dom.js ***!
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createCard\": () => (/* binding */ createCard)\n/* harmony export */ });\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n\n\nconsole.log(\"This is DOM\");\nconst tasks = document.querySelector(\".tasks\");\nconst button = document.createElement(\"button\");\nbutton.textContent = \"Hello, Add task\";\nbutton.addEventListener(\"click\", () => console.log(\"\"));\n\ntasks.appendChild(button);\n\nfunction createCard(exTask) {\n  let card = document.createElement(\"div\");\n  card.classList.add(\"card\");\n  card.innerHTML = exTask.printTask();\n  tasks.appendChild(card);\n}\n\n\n//# sourceURL=webpack://todo/./src/dom.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createCard\": () => (/* binding */ createCard)\n/* harmony export */ });\n/* harmony import */ var _logic_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logic.js */ \"./src/logic.js\");\n\n\nconsole.log(\"This is DOM\");\nconst tasks = document.querySelector(\".tasks\");\nconst button = document.createElement(\"button\");\nbutton.textContent = \"Hello, Add task\";\nbutton.addEventListener(\"click\", () => _logic_js__WEBPACK_IMPORTED_MODULE_0__.logic.createTask());\n\ntasks.appendChild(button);\n\nfunction createCard(exTask) {\n  let card = document.createElement(\"div\");\n  card.classList.add(\"card\");\n  card.innerHTML = exTask.printTask();\n  tasks.appendChild(card);\n}\n\n\n//# sourceURL=webpack://todo/./src/dom.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _logic_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logic.js */ \"./src/logic.js\");\n/* harmony import */ var _dom_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dom.js */ \"./src/dom.js\");\n\n\n\n\n//Add main page and project add logic\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/logic.js":
+/*!**********************!*\
+  !*** ./src/logic.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"logic\": () => (/* binding */ logic)\n/* harmony export */ });\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\n\nconsole.log(\"This is Logic\");\n\nconst logic = (function () {\n  class Task {\n    constructor(title, description, deadline, priority, notes) {\n      this.title = title;\n      this.description = description;\n      this.deadline = deadline;\n      this.priority = priority;\n      this.notes = notes;\n    }\n\n    printTask() {\n      return `\n    ${this.title} <br>\n    ${this.description} <br>\n    Ends in ${this.deadline} <br>\n    ${this.priority}\n    `;\n    }\n  }\n\n  let allTasks = [];\n\n  function createTask() {\n    let exTask = new Task(\n      \"Gay\",\n      \"Sex\",\n      \"23/12\",\n      \"high\",\n      \"This is  avery specific test\"\n    );\n    (0,_dom__WEBPACK_IMPORTED_MODULE_0__.createCard)(exTask);\n    allTasks.push(exTask);\n    console.log(allTasks);\n  }\n\n  return { createTask };\n})();\n\n\n\n\n//# sourceURL=webpack://todo/./src/logic.js?");
 
 /***/ })
 
@@ -206,8 +216,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/app.js");
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;
