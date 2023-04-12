@@ -1,1 +1,5 @@
-console.log("It works");
+import "./style.css";
+const text = document.createElement("p");
+text.textContent = "Hello";
+text.classList.add("hello");
+document.body.appendChild(text);
