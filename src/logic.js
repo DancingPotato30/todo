@@ -1,6 +1,6 @@
-import { createCard } from "./dom";
+import { DOM } from "./dom";
 
-const logic = (function () {
+const LOGIC = (function () {
   class Task {
     constructor(title, description, deadline, priority, notes) {
       this.title = title;
@@ -20,22 +20,33 @@ const logic = (function () {
     }
   }
 
-  let allTasks = [];
+  class Project {
+    constructor(title) {
+      this.title = title;
+      this.tasks = [];
+    }
+  }
 
+  let allProjects = [];
+
+  function createProject(title) {
+    let project = new Project(title);
+    let index = allProjects.push(project) - 1;
+    DOM.appendProject(DOM.nameInput.value, index);
+  }
   function createTask() {
-    let exTask = new Task(
+    let task = new Task(
       "Gay",
       "Sex",
       "23/12",
       "high",
       "This is  avery specific test"
     );
-    createCard(exTask);
-    allTasks.push(exTask);
+    DOM.createCard(task);
     console.log(allTasks);
   }
 
-  return { createTask };
+  return { createTask, createProject };
 })();
 
-export { logic };
+export { LOGIC };

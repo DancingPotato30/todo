@@ -1,7 +1,79 @@
-.tasks{
-    border: solid;
+body{
+    display: flex;
+    margin: 0px;
+    color: white;
+    background-color: #121211;
+}
+
+.inactive{
+    display: none;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-right: solid yellow;
+    height: 100vh;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.sidebar > .title{
+    font-size: 3rem;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    flex-grow: 100;
+}
+
+.header{
+    font-size: 2.5rem;
+    padding: 20px;
+}
+
+.projectAdd{
+    font-size: 20px;
+}
+
+.taskBtn{
+    border: solid green;
+}
+
+button{
+    background-color: #121211;
+    color: white;
+    border: none;
+}
+
+button:hover{
+    color: grey;
+}
+
+.nameField{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    font-size: 1.2rem;
+}
+
+.nameField > input{
+    font-size: 16px;
+}
+
+.projectContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .card{
     border: red solid;
+}
+
+form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
