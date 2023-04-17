@@ -2,21 +2,11 @@ import { DOM } from "./dom";
 
 const LOGIC = (function () {
   class Task {
-    constructor(title, description, deadline, priority, notes) {
+    constructor(title, description, deadline, priority) {
       this.title = title;
       this.description = description;
       this.deadline = deadline;
       this.priority = priority;
-      this.notes = notes;
-    }
-
-    printTask() {
-      return `
-    ${this.title} <br>
-    ${this.description} <br>
-    Ends in ${this.deadline} <br>
-    ${this.priority}
-    `;
     }
   }
 
@@ -34,16 +24,15 @@ const LOGIC = (function () {
     let index = allProjects.push(project) - 1;
     DOM.appendProject(DOM.nameInput.value, index);
   }
-  function createTask() {
-    let task = new Task(
-      "Gay",
-      "Sex",
-      "23/12",
-      "high",
-      "This is  avery specific test"
-    );
-    DOM.createCard(task);
-    console.log(allTasks);
+  function createTask(index) {
+    const title = document.querySelector(".taskName").value;
+    const description = document.querySelector(".taskDesc").value;
+    const date = document.querySelector(".taskDate").value;
+    const priority = document.querySelector(".taskPriority").value;
+    let task = new Task(title, description, date, priority);
+    return task;
+    console.log(task);
+    console.log(index);
   }
 
   return { createTask, createProject };

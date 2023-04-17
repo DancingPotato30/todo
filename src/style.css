@@ -23,6 +23,16 @@ body{
     font-size: 3rem;
 }
 
+.projects > button{
+    font-size: 20px;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .main{
     display: flex;
     flex-direction: column;
@@ -76,4 +86,40 @@ button:hover{
 form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    border: purple solid;
+    gap: 30px;
+    padding: 10px;
+}
+
+.taskAddBtn{
+    grid-column: -3 / -1;
+}
+
+.activeProject{
+    position: absolute;
+    top: 190px;
+    left: 600px;
+    height: 600px;
+    width: 600px;
+    font-size: 5rem;
+}
+
+.formInputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.urgent{
+    color: red;
+}
+
+.kindaImportant{
+    color: yellow;
+}
+
+.singleTask{
+    display: flex;
+    border: white solid;
+    justify-content: space-between;
+    padding: 10px;
 }
