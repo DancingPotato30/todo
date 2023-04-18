@@ -6,6 +6,10 @@ import { DOM } from "./dom";
 
 (function eventListeners() {
   let currentTask;
+  document.querySelector(".testBtn").addEventListener("click", () => {
+    console.log(LOGIC.allProjects);
+  });
+
   DOM.newProjectBtn.addEventListener("click", () => {
     DOM.getProjectName();
   });
@@ -27,7 +31,7 @@ import { DOM } from "./dom";
       DOM.removeForm("task");
       DOM.createAddTaskBtn(e.target.dataset.index);
     } else if (e.target.classList.contains("singleTask")) {
-      console.log(currentTask);
+      console.log(e.target);
       DOM.createDescription(currentTask, e.target);
     }
   });

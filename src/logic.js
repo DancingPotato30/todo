@@ -19,6 +19,10 @@ const LOGIC = (function () {
 
   let allProjects = [];
 
+  function pushTask(index, task) {
+    allProjects[index].tasks.push(task);
+  }
+
   function createProject(title) {
     let project = new Project(title);
     let index = allProjects.push(project) - 1;
@@ -30,12 +34,11 @@ const LOGIC = (function () {
     const date = document.querySelector(".taskDate").value;
     const priority = document.querySelector(".taskPriority").value;
     let task = new Task(title, description, date, priority);
+    pushTask(index, task);
     return task;
-    console.log(task);
-    console.log(index);
   }
 
-  return { createTask, createProject };
+  return { createTask, createProject, allProjects };
 })();
 
 export { LOGIC };

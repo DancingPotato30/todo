@@ -10,9 +10,9 @@ const DOM = (function () {
   function createDescription(taskObject, currentTask) {
     const descriptionField = document.createElement("textarea");
     descriptionField.classList.add("descField");
-    //descriptionField.classList.add("inactive");
+    descriptionField.classList.add("inactive");
     descriptionField.textContent = taskObject.description;
-    console.log(currentTask);
+    console.log("AWOOGA");
     currentTask.appendChild(descriptionField);
   }
 
