@@ -31,7 +31,7 @@ import { DOM } from "./dom";
       DOM.removeForm("task");
       DOM.createAddTaskBtn(e.target.dataset.index);
     } else if (e.target.classList.contains("singleTask")) {
-      console.log(e.target);
+      console.log("sec");
       DOM.createDescription(currentTask, e.target);
     }
   });

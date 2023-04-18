@@ -43,8 +43,6 @@ const DOM = (function () {
     document
       .querySelector(`.tasksContainer[data-index="${index}"]`)
       .appendChild(taskContainer);
-
-    createDescription(task, index);
   }
 
   function createAddTaskBtn(index, tasks) {
