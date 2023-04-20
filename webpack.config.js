@@ -3,23 +3,24 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
-  devtool: "inline-source-map",
+  entry: {
+    index: "./src/index.js",
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "ToDo List",
-      template: "./src/index.html",
+      title: "Work Wizard",
+      template: "src/index.html",
     }),
   ],
   output: {
+    filename: "main.js",
     path: path.resolve(__dirname, "dist"),
-    filename: "./main.js",
     clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
     ],

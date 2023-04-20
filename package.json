@@ -1,31 +1,19 @@
 {
-  "name": "todo",
+  "name": "refactortodo",
   "version": "1.0.0",
-  "description": "A todo project by yours truly",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DancingPotato30/todo.git"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DancingPotato30/todo/issues"
-  },
-  "homepage": "https://github.com/DancingPotato30/todo#readme",
   "devDependencies": {
     "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.0",
-    "style-loader": "^3.3.2",
-    "webpack": "^5.78.0",
-    "webpack-cli": "^5.0.1"
-  },
-  "dependencies": {
-    "date-fns": "^2.29.3"
+    "date-fns": "^2.29.3",
+    "html-webpack-plugin": "^5.5.1",
+    "style-loader": "^3.3.2"
   }
 }

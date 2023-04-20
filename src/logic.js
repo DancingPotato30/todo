@@ -1,44 +1,32 @@
-import { DOM } from "./dom";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const LOGIC = (function () {
-  class Task {
-    constructor(title, description, deadline, priority) {
-      this.title = title;
-      this.description = description;
-      this.deadline = deadline;
-      this.priority = priority;
-    }
+class Project {
+  constructor(name) {
+    this.name = name;
+    this.todoList = [];
   }
+}
 
-  class Project {
-    constructor(title) {
-      this.title = title;
-      this.tasks = [];
-    }
+class Todo {
+  constructor(title, description, dueDate, priority) {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
   }
+}
 
-  let allProjects = [];
+let allProjects = [];
 
-  function pushTask(index, task) {
-    allProjects[index].tasks.push(task);
-  }
+function createProject(name) {
+  let project = new Project(name);
+  allProjects.push(project);
+}
 
-  function createProject(title) {
-    let project = new Project(title);
-    let index = allProjects.push(project) - 1;
-    DOM.appendProject(DOM.nameInput.value, index);
-  }
-  function createTask(index) {
-    const title = document.querySelector(".taskName").value;
-    const description = document.querySelector(".taskDesc").value;
-    const date = document.querySelector(".taskDate").value;
-    const priority = document.querySelector(".taskPriority").value;
-    let task = new Task(title, description, date, priority);
-    pushTask(index, task);
-    return task;
-  }
+function createTodo(projectIndex, title, description, dueDate, priority) {
+  let todo = new Todo(title, description, dueDate, priority);
+  console.log(projectIndex);
+  allProjects[Number(projectIndex)].todoList.push(todo);
+}
 
-  return { createTask, createProject, allProjects };
-})();
-
-export { LOGIC };
+export { allProjects, createProject, createTodo };
