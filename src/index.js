@@ -1,13 +1,15 @@
 import "./style.css";
 import { createPopup, getProjectTitle, refreshProjects } from "./dom";
-import { allProjects, populateStorage } from "./logic";
+import { populateStorage } from "./logic";
+
+window.allProjects = [];
 
 window.addEventListener("load", () => {
   if (storageAvailable("localStorage")) {
     if (!localStorage.getItem("projectsArray")) {
       populateStorage();
     } else {
-      allProjects = JSON.parse(localStorage.getItem("projectsArray"));
+      window.allProjects = JSON.parse(localStorage.getItem("projectsArray"));
       refreshProjects();
     }
   }
@@ -16,15 +18,6 @@ window.addEventListener("load", () => {
 document.querySelector(".newProjectBtn").addEventListener("click", () => {
   createPopup();
   getProjectTitle();
-});
-
-document.querySelector(".test").addEventListener("click", () => {
-  console.log(localStorage);
-  console.log(allProjects);
-});
-
-document.querySelector(".clear").addEventListener("click", () => {
-  localStorage.clear();
 });
 
 //LOCAL STORAGE CHECK

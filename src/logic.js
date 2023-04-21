@@ -16,21 +16,19 @@ class Todo {
   }
 }
 
-let allProjects = [];
-
 function createProject(name) {
   let project = new Project(name);
-  allProjects.push(project);
+  window.allProjects.push(project);
 }
 
 function createTodo(projectIndex, title, description, dueDate, priority) {
   let todo = new Todo(title, description, dueDate, priority);
   console.log(projectIndex);
-  allProjects[Number(projectIndex)].todoList.push(todo);
+  window.allProjects[Number(projectIndex)].todoList.push(todo);
 }
 
 function populateStorage() {
-  localStorage.setItem("projectsArray", JSON.stringify(allProjects));
+  localStorage.setItem("projectsArray", JSON.stringify(window.allProjects));
 }
 
-export { allProjects, createProject, createTodo, populateStorage };
+export { createProject, createTodo, populateStorage };

@@ -1,9 +1,4 @@
-import {
-  createProject,
-  allProjects,
-  createTodo,
-  populateStorage,
-} from "./logic";
+import { createProject, createTodo, populateStorage } from "./logic";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 function getProjectTitle() {
@@ -146,7 +141,7 @@ function refreshProjects() {
   });
 
   //Create Projects
-  for (let i = 0; i < allProjects.length; i++) {
+  for (let i = 0; i < window.allProjects.length; i++) {
     const projectCard = document.createElement("div");
     const title = document.createElement("div");
     const newToDo = document.createElement("button");
@@ -164,7 +159,7 @@ function refreshProjects() {
 
     newToDo.textContent = "New Todo+";
     deleteProjectBtn.textContent = "X";
-    title.textContent = allProjects[i].name;
+    title.textContent = window.allProjects[i].name;
 
     projectCard.addEventListener("click", (e) => {
       if (e.target.classList.contains("newToDoBtn")) {
@@ -175,19 +170,19 @@ function refreshProjects() {
     });
 
     deleteProjectBtn.addEventListener("click", () => {
-      allProjects.splice(i, 1);
+      window.allProjects.splice(i, 1);
       refreshProjects();
       console.log("hey");
     });
 
     //Sidebar Projects
     const sidebarProject = document.createElement("div");
-    sidebarProject.textContent = allProjects[i].name;
+    sidebarProject.textContent = window.allProjects[i].name;
     sidebarProject.classList.add("sidebarProject");
     document.querySelector(".newProjects").appendChild(sidebarProject);
 
     //Create todoList
-    for (let j = 0; j < allProjects[i].todoList.length; j++) {
+    for (let j = 0; j < window.allProjects[i].todoList.length; j++) {
       const todo = document.createElement("div");
       const mainInfo = document.createElement("div");
       const name = document.createElement("div");
@@ -206,22 +201,22 @@ function refreshProjects() {
       descContainer.classList.add("descContainer");
       descContainer.classList.add("inactive");
       descField.classList.add("descContainer");
-      if (allProjects[i].todoList[j].priority == "Important") {
+      if (window.allProjects[i].todoList[j].priority == "Important") {
         mainInfo.classList.add("important");
-      } else if (allProjects[i].todoList[j].priority == "Urgent") {
+      } else if (window.allProjects[i].todoList[j].priority == "Urgent") {
         mainInfo.classList.add("urgent");
       }
 
       descLabel.textContent = "Description";
 
-      name.textContent = allProjects[i].todoList[j].title;
-      if (allProjects[i].todoList[j].dueDate) {
+      name.textContent = window.allProjects[i].todoList[j].title;
+      if (window.allProjects[i].todoList[j].dueDate) {
         dueDate.textContent = formatDistanceToNow(
-          new Date(allProjects[i].todoList[j].dueDate),
+          new Date(window.allProjects[i].todoList[j].dueDate),
           { addSuffix: true }
         );
       }
-      descField.textContent = allProjects[i].todoList[j].description;
+      descField.textContent = window.allProjects[i].todoList[j].description;
 
       todo.addEventListener("click", (e) => {
         if (
@@ -233,13 +228,13 @@ function refreshProjects() {
       });
 
       descField.addEventListener("keyup", () => {
-        allProjects[i].todoList[j].description = descField.value;
+        window.allProjects[i].todoList[j].description = descField.value;
       });
 
       doneCheck.addEventListener("click", (e) => {
         if (e.target.checked == true) {
           setTimeout(() => {
-            allProjects[i].todoList.splice(j, 1);
+            window.allProjects[i].todoList.splice(j, 1);
             refreshProjects();
           }, 1000);
         } else if (e.target.checked == false) {
