@@ -1,4 +1,9 @@
-import { createProject, allProjects, createTodo } from "./logic";
+import {
+  createProject,
+  allProjects,
+  createTodo,
+  populateStorage,
+} from "./logic";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 function getProjectTitle() {
@@ -261,6 +266,8 @@ function refreshProjects() {
     projectCard.appendChild(todoList);
     document.querySelector(".projectContainer").appendChild(projectCard);
   }
+
+  populateStorage();
 }
 
 export { createPopup, getProjectTitle, refreshProjects };

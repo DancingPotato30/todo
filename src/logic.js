@@ -29,4 +29,8 @@ function createTodo(projectIndex, title, description, dueDate, priority) {
   allProjects[Number(projectIndex)].todoList.push(todo);
 }
 
-export { allProjects, createProject, createTodo };
+function populateStorage() {
+  localStorage.setItem("projectsArray", JSON.stringify(allProjects));
+}
+
+export { allProjects, createProject, createTodo, populateStorage };
